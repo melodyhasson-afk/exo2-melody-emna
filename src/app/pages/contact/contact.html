@@ -1,0 +1,42 @@
+<div style="max-width: 450px; margin: 30px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+  <h2 style="text-align: center; margin-bottom: 20px;">Formulaire de Contact</h2>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: column; gap: 15px;">
+    <div>
+      <label><strong>Prénom *</strong></label>
+      <input type="text" formControlName="prenom" style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;" />
+    </div>
+
+    <div>
+      <label><strong>Nom *</strong></label>
+      <input type="text" formControlName="nom" style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;" />
+    </div>
+
+    <div>
+      <label><strong>Âge</strong></label>
+      <input type="number" formControlName="age" style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;" />
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <input type="checkbox" formControlName="hideEmail" id="hideEmail" />
+      <label for="hideEmail">Hide (masquer l'email)</label>
+    </div>
+
+    <div *ngIf="!contactForm.get('hideEmail')?.value">
+      <label><strong>Email *</strong></label>
+      <input type="email" formControlName="email" style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;" />
+    </div>
+
+    <div>
+      <label><strong>Commentaire *</strong></label>
+      <textarea formControlName="commentaire" rows="4" style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;"></textarea>
+    </div>
+
+    <button 
+      type="submit" 
+      [disabled]="!contactForm.valid" 
+      style="padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
+      Envoyer
+    </button>
+  </form>
+</div>

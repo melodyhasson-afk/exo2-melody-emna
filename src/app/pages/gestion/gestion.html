@@ -1,0 +1,19 @@
+<div style="text-align: center; margin-top: 40px;">
+  <h2>Page Gestion</h2>
+
+  <div *ngIf="contactData; else noData" style="max-width: 400px; margin: 20px auto; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+    <h3>Dernier formulaire envoyé :</h3>
+    <p><strong>Prénom :</strong> {{ contactData.prenom }}</p>
+    <p><strong>Nom :</strong> {{ contactData.nom }}</p>
+    <p *ngIf="contactData.age"><strong>Âge :</strong> {{ contactData.age }}</p>
+    <p *ngIf="contactData.email"><strong>Email :</strong> {{ contactData.email }}</p>
+    <p><strong>Commentaire :</strong> {{ contactData.commentaire }}</p>
+  </div>
+
+  <ng-template #noData>
+    <div style="margin-top: 30px;">
+      <h3>404 Not Found</h3>
+      <p>Aucun formulaire n'a été envoyé pour le moment.</p>
+    </div>
+  </ng-template>
+</div>

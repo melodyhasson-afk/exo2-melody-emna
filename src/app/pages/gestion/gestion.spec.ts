@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { GestionComponent } from './gestion';
+
+describe('Gestion', () => {
+  let component: GestionComponent;
+  let fixture: ComponentFixture<GestionComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [GestionComponent]
+    })
+      .compileComponents();
+
+    fixture = TestBed.createComponent(GestionComponent);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
